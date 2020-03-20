@@ -1,6 +1,6 @@
 ''' Case study Tesselation
-Developers: Arkhipova A.(%)
-            Revtova L.(%)
+Developers: Arkhipova A.(69%)
+            Revtova L.(57%)
 '''
 import turtle
 from math import cos, pi, sin
