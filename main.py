@@ -28,9 +28,49 @@ Select the number of hexagons:''')
     return int(choice)
 
 
-color1 = get_color_choice()
-color2 = get_color_choice()
-number = get_num_hexagons()
+def draw_hexagons(start_x, start_y, number, color1, color2):
+    screen = t.Screen()
+    screen.setup(600, 600)
+    hexagon1 = int(number / 2)
+    hexagon2 = number - hexagon1
+    PIX = 500
+    d = PIX / number
+    y = ((d / 2) / (cos(pi / 6)))
+    x = (sin(pi / 6) * y)
+    mn1 = {0, 1, 4, 5, 8, 9, 12, 13, 16, 17}
+    t.speed(0)
+    t.up()
+
+    def one_line(color1, color2):
+        for _ in range(hexagon2):
+            t.right(30)
+            t.down()
+            t.begin_fill()
+            t.color(color1)
+            for _ in range(6):
+                t.fd(y)
+                t.right(60)
+            t.end_fill()
+            t.up()
+            t.left(30)
+            t.fd(d + d)
+        if number % 2 == 0:
+            t.bk((number - 1) * d)
+        elif number % 2 != 0:
+            t.bk(number * d)
+
+        for _ in range(hexagon1):
+            t.right(30)
+            t.down()
+            t.begin_fill()
+            t.color(color2)
+            for _ in range(6):
+                t.fd(y)
+                t.right(60)
+            t.end_fill()
+            t.up()
+            t.left(30)
+            t.fd(d + d)
 
 
 turtle.done()
