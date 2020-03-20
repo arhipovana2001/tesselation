@@ -71,6 +71,21 @@ def draw_hexagons(start_x, start_y, number, color1, color2):
             t.up()
             t.left(30)
             t.fd(d + d)
+            
+    for i in range(number):
+        if i % 2 == 0:
+            t.goto(start_x, start_y - (y + x) * i)
+            if i in mn1:
+                one_line(color1, color2)
+            else:
+                one_line(color2, color1)
+        elif i % 2 != 0:
+            t.goto(start_x - d / 2, start_y - (y + x) * i)
+            if i in mn1:
+                one_line(color1, color2)
+            else:
+                one_line(color2, color1)
 
 
+draw_hexagons(-190, 245, get_num_hexagons(), get_color_choice(), get_color_choice())
 turtle.done()
